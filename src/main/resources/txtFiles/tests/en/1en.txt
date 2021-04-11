@@ -1,0 +1,18 @@
+Who is this?
+mother
+brother
+father
+grandfather
+sister
+grandmother
+girl
+child
+boy
+son
+children
+daughter
+aunt
+friend
+uncle
+woman
+man

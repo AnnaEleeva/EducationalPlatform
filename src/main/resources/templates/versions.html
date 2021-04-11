@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Product Manager</title>
+</head>
+<body>
+
+<div align="center">
+    <h1>Versions List</h1>
+    <a>select version!</a>
+    <br/><br/>
+    <table border="1" cellpadding="10">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Play</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="version : ${listVersions}">
+            <td th:text="${version.name}">Name</td>
+            <td>
+                <a>select!</a>
+                <a th:href="@{*{idSubject} + '/ver/select/' + ${version.id}}">Play!</a>
+
+
+            </td>
+
+
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

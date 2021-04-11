@@ -1,0 +1,15 @@
+What is your name?
+My name is Pete
+My name is Galina
+Good morning
+Hello
+Hi
+Good evening
+Good-bye
+Bye-bye
+How are you?
+Fine, thanks
+I am glad to see you
+Glad to see you, too
+Have a good day
+See you later

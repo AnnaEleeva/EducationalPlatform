@@ -1,0 +1,27 @@
+Vegetables
+Fruits
+cabbage
+potato
+cherry
+banana
+plum
+nut
+apple
+grape
+cucumber
+tomato
+apricot
+strawberry
+lemon
+blach currant
+peach
+raspberry
+orange
+onion
+beet
+reddich
+pear
+carrot
+pumpkin
+watermelon
+melon

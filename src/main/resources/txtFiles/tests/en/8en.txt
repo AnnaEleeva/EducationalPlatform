@@ -1,0 +1,17 @@
+Dishes
+cup
+kettle
+saucer
+plate
+pan
+pot
+napkin
+teapot
+vase
+table-cloth
+dish
+fork
+spoon
+jug
+knife
+glass

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <title>Hello!</title>
+</head>
+<body>
+<script>
+      let d = new Date();
+      document.body.innerHTML = "<h4>Today’s date is " + d + "</h4>"
+
+      function sayThanks() {alert('Спасибо!');}
+</script>
+
+<input type="button" onclick="alert('Клик!')" value="Кнопка">
+<input name="guruweba_example_number" type="number" />
+<input type="button" id="elem" onclick="alert('Было')" value="Нажми меня">
+<button onclick="alert(this.innerHTML)">Нажми меня</button>
+<script>
+  function sayThanks() { alert('Спасибо!');}
+  elem.onclick = sayThanks;
+</script>
+
+<div align="center">
+    <h1>Hello!</h1>
+    <img th:src="*{id}" src="https://bipbap.ru/wp-content/uploads/2019/05/86ae0b2400c92d333751c8d9a9ae68e4.png" width="100" height="100"/>
+    <br />
+    <form  th:object="${product}">
+
+        <table border="1" cellpadding="10">
+            <tr>
+                <td>Product ID:</td>
+                <td>
+                    <!--<input type="text" th:field="*{id}" readonly="readonly" />-->
+                    <span th:utext="*{id}"></span>
+                    <input type="button"  id="elem2" onclick="alert('Было')" value="Push" >
+                    <script>
+                    function sayThanks() { alert("!!!");} elem2.onclick = sayThanks; </script>
+                </td>
+            </tr>
+
+        </table>
+    </form>
+</div>
+<div>
+    <form>
+        <p>Please select your preferred contact method:</p>
+        <div>
+            <input type="radio" id="contactChoice1"
+                   name="contact" value="email">
+            <label for="contactChoice1">Email</label>
+            <input type="radio" id="contactChoice2"
+                   name="contact" value="phone">
+            <label for="contactChoice2">Phone</label>
+            <input type="radio" id="contactChoice3"
+                   name="contact" value="mail">
+            <label for="contactChoice3">Mail</label>
+        </div>
+        <div>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+    <pre id="log">
+</pre>
+</div>
+</body>
+</html>

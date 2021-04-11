@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Product Manager</title>
+</head>
+<body>
+
+<div align="center">
+    <h1>Levels List</h1>
+    <span th:utext="*{nameSubject}"></span>
+    <br/><br/>
+    <table border="1" cellpadding="10">
+        <thead>
+        <tr>
+            <th>Level</th>
+            <th>Name</th>
+            <th>Play</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="level : ${listLevels}">
+            <td th:text="${level.level}">Level</td>
+            <td th:text="${level.name}">Name</td>
+            <td>
+                <a th:href="@{*{idSubject} + '/level/select/' + ${level.id}}">Play!</a>
+            </td>
+
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

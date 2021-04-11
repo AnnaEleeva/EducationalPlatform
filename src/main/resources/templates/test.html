@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+   h1 {
+    font-family: 'Times New Roman', Times, serif; /* Гарнитура текста */
+    font-size: 250%; /* Размер шрифта в процентах */
+   }
+   p {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 20pt; /* Размер шрифта в пунктах */
+   }
+    label {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 15pt; /* Размер шрифта в пунктах */
+   }
+   button {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 15pt; /* Размер шрифта в пунктах */
+   }
+  </style>
+</head>
+<body>
+<div align="center">
+    <form>
+        <br />
+        <br />
+        <p th:text="${questionText}"></p><br />
+        <div align="center">
+
+            <input type="radio" id="contactChoice11"
+                       name="contact" th:value="0">
+            <label for="contactChoice11" th:text="${stringList[0]}"></label><br /><br />
+
+
+            <input type="radio" id="contactChoice22"
+                      name="contact" th:value="1">
+            <label for="contactChoice22" th:text="${stringList[1]}"></label><br /><br />
+
+
+            <input type="radio" id="contactChoice33"
+                      name="contact" th:value="2">
+            <label for="contactChoice33" th:text="${stringList[2]}"></label><br /><br />
+
+
+        </div>
+       <br />
+        <div>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+    <pre id="log">
+</pre>
+    <p th:text="${answer}"></p>
+</div>
+
+</body>
+</html>

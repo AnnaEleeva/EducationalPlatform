@@ -1,0 +1,37 @@
+Food
+I am hungry
+milk
+bread
+meat
+fish
+butter
+egg
+sausage
+ice cream
+cheese
+macaroni
+canned foods
+chocolate
+sour cream
+salt
+sugar
+sweets
+salad
+porridge
+jam
+honey
+tea
+juice
+pancakes
+soup
+cocoa
+coffee
+cake
+curds
+fried eggs
+biscuit
+biscuit
+breakfast
+lunch
+dinner
+supper
