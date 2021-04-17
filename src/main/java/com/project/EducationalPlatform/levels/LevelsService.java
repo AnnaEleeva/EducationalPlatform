@@ -10,22 +10,22 @@ import java.util.List;
 @Transactional
 public class LevelsService {
 
-    @Autowired
-    private LevelsRepository repo;
+	@Autowired
+	private LevelsRepository repo;
 
-    public List<Levels> listAll() {
-        return repo.findAll();
-    }
+	public List<Levels> listAll() {
+		return repo.findAll();
+	}
 
-    public void save(Levels level) {
-        repo.save(level);
-    }
+	public void save(Levels level) {
+		repo.save(level);
+	}
 
-    public Levels get(long id) {
-        return repo.findById(id).get();
-    }
+	public Levels get(long id) {
+		return repo.findById(id).get();
+	}
 
-    public void delete(long id) {
-        repo.deleteById(id);
-    }
+	public void delete(long id) {
+		repo.deleteById(id);
+	}
 }

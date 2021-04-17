@@ -10,22 +10,22 @@ import java.util.List;
 @Transactional
 public class ProductService {
 
-	//тут можно более интресные методы сделать..
+	// тут можно более интресные методы сделать..
 	@Autowired
 	private ProductRepository repo;
-	
+
 	public List<Product> listAll() {
 		return repo.findAll();
 	}
-	
+
 	public void save(Product product) {
 		repo.save(product);
 	}
-	
+
 	public Product get(long id) {
 		return repo.findById(id).get();
 	}
-	
+
 	public void delete(long id) {
 		repo.deleteById(id);
 	}

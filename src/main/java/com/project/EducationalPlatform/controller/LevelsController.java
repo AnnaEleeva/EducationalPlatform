@@ -17,29 +17,29 @@ import java.util.List;
 @Controller
 public class LevelsController {
 
-    public static int level;
+	public static int level;
 
-    @Autowired
-    private LevelsService levelsService;
+	@Autowired
+	private LevelsService levelsService;
 
-    @Autowired
-    private SubjectsService subjectsService;
+	@Autowired
+	private SubjectsService subjectsService;
 
-    @RequestMapping("/sub/select/{idSubject}")
-    public ModelAndView viewLevelsPage(@PathVariable(name = "idSubject") int idSubject) { //вывод таблицы
+	@RequestMapping("/sub/select/{idSubject}")
+	public ModelAndView viewLevelsPage(@PathVariable(name = "idSubject") int idSubject) { // вывод таблицы
 
-        SubjectsController.subjectEnum= SubjectEnum.values()[idSubject-1];
-        QuestMaker.fw();
-        System.out.println();
+		SubjectsController.subjectEnum = SubjectEnum.values()[idSubject - 1];
+		QuestMaker.fw();
+		System.out.println();
 
-        ModelAndView mav = new ModelAndView("levels");
-        List<Levels> listLevels = levelsService.listAll();
-        Subjects subject =subjectsService.get(idSubject);
+		ModelAndView mav = new ModelAndView("levels");
+		List<Levels> listLevels = levelsService.listAll();
+		Subjects subject = subjectsService.get(idSubject);
 
-        mav.addObject("listLevels", listLevels);
-        mav.addObject("nameSubject",subject.getName());
-        mav.addObject("idSubject",subject.getId());
+		mav.addObject("listLevels", listLevels);
+		mav.addObject("nameSubject", subject.getName());
+		mav.addObject("idSubject", subject.getId());
 
-        return mav;
-    }
+		return mav;
+	}
 }

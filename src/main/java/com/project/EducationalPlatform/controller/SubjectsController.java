@@ -13,27 +13,25 @@ import java.util.List;
 @Controller
 public class SubjectsController {
 
-    public static SubjectEnum subjectEnum;
+	public static SubjectEnum subjectEnum;
 
-    @Autowired
-    private SubjectsService subjectsService;
+	@Autowired
+	private SubjectsService subjectsService;
 
-    @RequestMapping("/sub")
-    public String viewSubjectsPage(Model model) { //вывод таблицы
-        List<Subjects> listSubjects = subjectsService.listAll();
-        model.addAttribute("listSubjects", listSubjects);
+	@RequestMapping("/sub")
+	public String viewSubjectsPage(Model model) { // вывод таблицы
+		List<Subjects> listSubjects = subjectsService.listAll();
+		model.addAttribute("listSubjects", listSubjects);
 
-        return "subjects";
-    }
+		return "subjects";
+	}
 
-  /*  @RequestMapping("/sub/select/{id}")
-    public String showPlayProductPage(@PathVariable(name = "id") int id) {
-        ModelAndView mav = new ModelAndView("playView");
-        Subjects subject = subjectsService.get(id);
-        mav.addObject("subject", subject);
-        //mav.addObject("id",id);
-
-        return "index";
-        //return "playView";
-    }*/
+	/*
+	 * @RequestMapping("/sub/select/{id}") public String
+	 * showPlayProductPage(@PathVariable(name = "id") int id) { ModelAndView mav =
+	 * new ModelAndView("playView"); Subjects subject = subjectsService.get(id);
+	 * mav.addObject("subject", subject); //mav.addObject("id",id);
+	 * 
+	 * return "index"; //return "playView"; }
+	 */
 }

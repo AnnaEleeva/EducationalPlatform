@@ -22,61 +22,61 @@ public class AppController {
 
 	@Autowired
 	private SubjectsService subjectsService;
-	
+
 	@RequestMapping("/")
-	public String viewHomePage(Model model) { //вывод таблицы
+	public String viewHomePage(Model model) { // вывод таблицы
 		List<Product> listProducts = service.listAll();
 		model.addAttribute("listProducts", listProducts);
-		
+
 		return "index";
 	}
 
-	/*@RequestMapping("/")
-	public String viewHomePage(Model model) { //вывод таблицы
-		List<Subjects> listSubjects = subjectsService.listAll();
-		model.addAttribute("listSubjects", listSubjects);
+	/*
+	 * @RequestMapping("/") public String viewHomePage(Model model) { //вывод
+	 * таблицы List<Subjects> listSubjects = subjectsService.listAll();
+	 * model.addAttribute("listSubjects", listSubjects);
+	 * 
+	 * return "subjects"; }
+	 */
 
-		return "subjects";
-	}*/
-	
 	@RequestMapping("/new")
-	public String showNewProductPage(Model model) { //создание нового продукта
+	public String showNewProductPage(Model model) { // создание нового продукта
 		Product product = new Product();
 		model.addAttribute("product", product);
-		
+
 		return "new_product";
 	}
-	
+
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public String saveProduct(@ModelAttribute("product") Product product) {
 		service.save(product);
-		
+
 		return "redirect:/";
 	}
-	
+
 	@RequestMapping("/edit/{id}")
 	public ModelAndView showEditProductPage(@PathVariable(name = "id") int id) {
-		ModelAndView mav = new ModelAndView("edit_product");//ModelAndView ( Вид, Указатель, Держатель );
+		ModelAndView mav = new ModelAndView("edit_product");// ModelAndView ( Вид, Указатель, Держатель );
 		Product product = service.get(id);
-		mav.addObject("product", product); //Указатель, Держатель
-		
+		mav.addObject("product", product); // Указатель, Держатель
+
 		return mav;
 	}
+
 	@RequestMapping("/play/{id}")
 	public ModelAndView showPlayProductPage(@PathVariable(name = "id") int id) {
 		ModelAndView mav = new ModelAndView("playView");
 		Product product = service.get(id);
 		mav.addObject("product", product);
-		//mav.addObject("id",id);
+		// mav.addObject("id",id);
 
 		return mav;
-		//return "playView";
+		// return "playView";
 	}
 
-	
 	@RequestMapping("/delete/{id}")
 	public String deleteProduct(@PathVariable(name = "id") int id) {
 		service.delete(id);
-		return "redirect:/";		
+		return "redirect:/";
 	}
 }

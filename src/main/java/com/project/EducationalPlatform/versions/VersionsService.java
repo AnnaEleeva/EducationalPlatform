@@ -10,22 +10,22 @@ import java.util.List;
 @Transactional
 public class VersionsService {
 
-    @Autowired
-    private VersionsRepository repo;
+	@Autowired
+	private VersionsRepository repo;
 
-    public List<Versions> listAll() {
-        return repo.findAll();
-    }
+	public List<Versions> listAll() {
+		return repo.findAll();
+	}
 
-    public void save(Versions version) {
-        repo.save(version);
-    }
+	public void save(Versions version) {
+		repo.save(version);
+	}
 
-    public Versions get(long id) {
-        return repo.findById(id).get();
-    }
+	public Versions get(long id) {
+		return repo.findById(id).get();
+	}
 
-    public void delete(long id) {
-        repo.deleteById(id);
-    }
+	public void delete(long id) {
+		repo.deleteById(id);
+	}
 }
