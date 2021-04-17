@@ -23,6 +23,9 @@
             	<td th:text="${user.id}">User ID</td>
                 <td th:text="${user.name}">Name</td>
                 <td th:text="${user.surname}">Surname</td>
+                <td>
+                	<a th:href="@{'/sub'}">Курс</a>
+                </td>
                 <td >
                 	<a th:href="@{'/' + ${user.id} + '/decks'}">Колоды</a>
                 </td>
