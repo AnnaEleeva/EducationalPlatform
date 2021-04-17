@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>Answer Control</title>
+</head>
+<body>
+
+<div align="center">
+    <h1>Answer Control</h1>
+    <form action="#" th:action="@{/{userId}/decks/{deckId}/cards/fsrepeat/replanning/save(userId=${userId},deckId=${deckId})}" th:object="${configForm}"
+    method="post">
+	    <table border="1" cellpadding="10">
+	        <thead>
+	            <tr>
+	                <th>First Side</th>
+	                <th>Second Side</th>
+	                <th>Your Answer</th>
+	                <th>Truth</th>
+	                <th>Recommendation</th>
+	                <th>Replanning</th>
+	            </tr>
+	        </thead>
+	        <tbody>
+	            <tr th:each="answer, iter : ${answerForm.answers}">
+	            	<td th:text="${answer.firstSide}">First Side</td>
+	            	<td th:text="${answer.secondSide}">Second Side</td>
+	                <td th:text="${answer.textAnswer}">Your Answer</td>
+	                <td th:text="${answer.truth}">Truth</td>
+	                <td th:text="${messageArray[__${iter.index}__]}">Recommendation</td>
+	            	<input type="hidden" th:field="*{configs[__${iter.index}__].cardId}" />
+	                <td><input type="text" th:field="*{configs[__${iter.index}__].newBoxNum}" /></td>
+	            </tr>
+	        </tbody>
+	    </table>
+		<button type="submit">Replanning</button>
+	</form>
+</div>    
+</body>
+</html>

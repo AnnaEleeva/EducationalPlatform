@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>User decks</title>
+</head>
+<body>
+
+<div align="center">
+    <h1>Cards For Repeat</h1>
+    <br/><br/>
+    <table border="1" cellpadding="10">
+        <thead>
+            <tr>
+                <th>Second Side</th>
+                <th>Your Answer</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="card,iter : ${repeatListCards}">
+            	<td th:text="${card.secondSide}">Second Side</td>
+                <td><input type="text" th:value="*{answerArray[__${iter.index}__]}" /></td>
+            </tr>
+        </tbody>
+    </table>
+</div>    
+</body>
+</html>

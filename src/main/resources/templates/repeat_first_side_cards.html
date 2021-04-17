@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>User decks</title>
+</head>
+<body>
+
+<div align="center">
+    <h1>Cards For Repeat</h1>
+    <br/><br/>
+    <form action="#" th:action="@{/{userId}/decks/{deckId}/cards/fsrepeat/control(userId=${userId},deckId=${deckId})}" th:object="${answerForm}"
+    method="post">
+	    <table border="1" cellpadding="10">
+	        <thead>
+	            <tr>
+	                <th>First Side</th>
+	                <th>Your Answer</th>
+	            </tr>
+	        </thead>
+	        <tbody>
+	            <tr th:each="answer,iter : ${answerForm.answers}">
+	            	<td th:text="${answer.firstSide}">First Side</td>
+	            	<input type="hidden" th:field="*{answers[__${iter.index}__].cardId}" />
+	            	<input type="hidden" th:field="*{answers[__${iter.index}__].firstSide}" />
+	            	<input type="hidden" th:field="*{answers[__${iter.index}__].secondSide}" />
+	            	<td><input type="text" th:field="*{answers[__${iter.index}__].textAnswer}" /></td>
+	            </tr>
+	        </tbody>
+	    </table>
+		<button type="submit">Save Answer</button>
+	</form>
+</div>    
+</body>
+</html>
