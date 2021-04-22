@@ -1,30 +1,30 @@
-package com.project.EducationalPlatform.versions;
+package com.project.EducationalPlatform.users;
+
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
-
 @Service
 @Transactional
-public class VersionsService {
+public class UserService {
 
 	@Autowired
-	private VersionsRepository repo;
-
-	public List<Versions> listAll() {
+	private UserRepository repo;
+	
+	public List<User> listAll() {
 		return repo.findAll();
 	}
-
-	public void save(Versions version) {
-		repo.save(version);
+	
+	public void save(User product) {
+		repo.save(product);
 	}
-
-	public Versions get(long id) {
+	
+	public User get(long id) {
 		return repo.findById(id).get();
 	}
-
+	
 	public void delete(long id) {
 		repo.deleteById(id);
 	}

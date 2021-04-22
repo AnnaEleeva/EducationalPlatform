@@ -7,32 +7,33 @@ import javax.persistence.Id;
 
 @Entity
 public class Subjects {
-    private Long id;
-    private String name;
+	private Long id;
+	private String name;
 
-    public Subjects() {
-    }
-    public Subjects(Long id, String name){
-        super();
-        this.id = id;
-        this.name = name;
-    }
+	public Subjects() {
+	}
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long getId() {
-        return id;
-    }
+	public Subjects(Long id, String name) {
+		super();
+		this.id = id;
+		this.name = name;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	public Long getId() {
+		return id;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 }
