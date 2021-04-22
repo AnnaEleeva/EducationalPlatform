@@ -13,6 +13,10 @@ public class CardService {
 	@Autowired
 	private CardRepository repo;
 	
+	public void resetTrainingDay(Long cardId) {
+		repo.resetTrainingDay(cardId);
+	}
+	
 	public void saveReplanUpdates(Long cardId, int newBoxNum) {
 		repo.saveReplanUpdates(cardId, newBoxNum);
 	}

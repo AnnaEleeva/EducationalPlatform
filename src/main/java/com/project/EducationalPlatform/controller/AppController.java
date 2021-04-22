@@ -70,10 +70,14 @@ public class AppController {
 	@RequestMapping("/{userId}/decks/{deckId}/cards/ssrepeat")
 	public String viewDeckCardsSecondSideRepeat(@PathVariable(name = "userId") Long userId,
 			@PathVariable(name = "deckId") Long deckId, Model model) {
-		List<Card> repeatListCards = (ArrayList<Card>) cardService.listAllForRepeatByDeckId(deckId);
-		Answer[] answerArray = new Answer[repeatListCards.size()];
-		model.addAttribute("repeatListCards", repeatListCards);
-		model.addAttribute("answerArray", answerArray);
+		List<Card> repeatListCards = cardService.listAllForRepeatByDeckId(deckId);
+		AnswerForm answerForm = new AnswerForm();
+		for (var i = 0; i < repeatListCards.size(); i++) {
+			answerForm.addAnswer(new Answer(repeatListCards.get(i).getCardId(),
+					repeatListCards.get(i).getFirstSide(),
+					repeatListCards.get(i).getSecondSide()));
+		}
+		model.addAttribute("answerForm", answerForm);
 		model.addAttribute("userId", userId);
 		model.addAttribute("deckId", deckId);
 		
@@ -88,6 +92,16 @@ public class AppController {
 		model.addAttribute("answerForm", answerForm);
 		
 		return "repeat_first_side_cards_control";
+	}
+	
+	@RequestMapping("/{userId}/decks/{deckId}/cards/ssrepeat/control")
+	public String viewDeckCardsSecondSideRepeatControl(
+			@ModelAttribute("answerForm") AnswerForm answerForm,
+			@PathVariable(name = "userId") Long userId,
+			@PathVariable(name = "deckId") Long deckId, Model model) {
+		model.addAttribute("answerForm", answerForm);
+		
+		return "repeat_second_side_cards_control";
 	}
 	
 	@RequestMapping("/{userId}/decks/{deckId}/cards/fsrepeat/replanning")
@@ -114,6 +128,32 @@ public class AppController {
 		model.addAttribute("messageArray", messageArray);
 		
 		return "repeat_first_side_cards_replanning";
+	}
+	
+	@RequestMapping("/{userId}/decks/{deckId}/cards/ssrepeat/replanning")
+	public String viewDeckCardsSecondSideRepeatReplanning(
+			@ModelAttribute("answerForm") AnswerForm answerForm,
+			@PathVariable(name = "userId") Long userId,
+			@PathVariable(name = "deckId") Long deckId, Model model) {
+		ReplanConfigForm configForm = new ReplanConfigForm();
+		String[] messageArray = new String[answerForm.getAnswers().size()];
+		for (var i = 0; i < answerForm.getAnswers().size(); i++) {
+			configForm.addConfig(new ReplanConfig(answerForm.getAnswers().get(i).getCardId()));
+			if (answerForm.getAnswers().get(i).getTruth())
+				messageArray[i] = "Рекомендуется не понижать интервал (сейчас 1 раз в " +
+						cardService.getBoxNumOnId(answerForm.getAnswers().get(i).getCardId()) +
+						" дня/дней)";
+			else messageArray[i] = "Рекомендуется понизить интервал (сейчас 1 раз в " +
+					cardService.getBoxNumOnId(answerForm.getAnswers().get(i).getCardId()) +
+					" дня/дней)";
+		}
+		
+		
+		model.addAttribute("answerForm", answerForm);
+		model.addAttribute("configForm", configForm);
+		model.addAttribute("messageArray", messageArray);
+		
+		return "repeat_second_side_cards_replanning";
 	}
 	
 	@RequestMapping("/{userId}/decks")
@@ -155,13 +195,16 @@ public class AppController {
 		return "new_product";
 	}*/
 	
-	@RequestMapping(value = "/{userId}/decks/{deckId}/cards/fsrepeat/replanning/save", method = RequestMethod.POST)
+	@RequestMapping(value = "/{userId}/decks/{deckId}/cards/repeat/replanning/save", method = RequestMethod.POST)
 	public String saveReplanConfigs(@ModelAttribute("configForm") ReplanConfigForm configForm,
 			@PathVariable(name = "userId") Long userId,
 			@PathVariable(name = "deckId") Long deckId) {
 		for (var i = 0; i < configForm.getConfigs().size(); i++)
+		{
 			cardService.saveReplanUpdates(configForm.getConfigs().get(i).getCardId(),
 					configForm.getConfigs().get(i).getNewBoxNum());
+			cardService.resetTrainingDay(configForm.getConfigs().get(i).getCardId());
+		}
 		
 		return "redirect:/" + userId + "/decks/" + deckId + "/cards";
 	}

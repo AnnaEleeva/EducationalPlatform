@@ -14,8 +14,8 @@
 	    <table border="1" cellpadding="10">
 	        <thead>
 	            <tr>
-	                <th>First Side</th>
 	                <th>Second Side</th>
+	                <th>First Side</th>
 	                <th>Your Answer</th>
 	                <th>Truth</th>
 	                <th>Recommendation</th>
@@ -24,8 +24,8 @@
 	        </thead>
 	        <tbody>
 	            <tr th:each="answer, iter : ${answerForm.answers}">
-	            	<td th:text="${answer.firstSide}">First Side</td>
 	            	<td th:text="${answer.secondSide}">Second Side</td>
+	            	<td th:text="${answer.firstSide}">First Side</td>
 	                <td th:text="${answer.textAnswer}">Your Answer</td>
 	                <td th:text="${answer.truth}">Truth</td>
 	                <td th:text="${messageArray[__${iter.index}__]}">Recommendation</td>
