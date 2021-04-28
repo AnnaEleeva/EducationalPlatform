@@ -6,6 +6,7 @@ import com.project.EducationalPlatform.subjects.SubjectsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -18,10 +19,11 @@ public class SubjectsController {
 	@Autowired
 	private SubjectsService subjectsService;
 
-	@RequestMapping("/sub")
-	public String viewSubjectsPage(Model model) { // вывод таблицы
+	@RequestMapping("/{userId}/sub")
+	public String viewSubjectsPage(@PathVariable(name = "userId") Long userId, Model model) { // вывод таблицы
 		List<Subjects> listSubjects = subjectsService.listAll();
 		model.addAttribute("listSubjects", listSubjects);
+		model.addAttribute("userId", userId);
 
 		return "subjects";
 	}

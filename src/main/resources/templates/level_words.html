@@ -8,18 +8,20 @@
 <body>
 
 <div align="center">
-    <h1>Subjects List</h1>
-    <a>select subject!</a>
+    <h1>Word List</h1>
     <br/><br/>
     <table border="1" cellpadding="10">
         <thead>
         <tr>
-            <th>Name</th>
+            <th>Learn</th>
+            <th>Rus</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="subject : ${listSubjects}">
-            <td><a th:href="@{'/' + ${userId} + '/sub/select/' + ${subject.id}}" th:text="${subject.name}" /></td>
+        <tr th:each="word, iter : ${listWordsRu}">
+        	<td th:text="${listWordsDe[__${iter.index}__]}">Learn Word</td>
+            <td th:text="${word}">Rus</td>
+
         </tr>
         </tbody>
     </table>
