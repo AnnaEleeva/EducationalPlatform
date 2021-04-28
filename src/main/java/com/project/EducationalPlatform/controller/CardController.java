@@ -1,6 +1,5 @@
 package com.project.EducationalPlatform.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,36 +9,18 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
-
 import com.project.EducationalPlatform.answers.Answer;
 import com.project.EducationalPlatform.answers.AnswerForm;
 import com.project.EducationalPlatform.cards.Card;
 import com.project.EducationalPlatform.cards.CardService;
-import com.project.EducationalPlatform.decks.Deck;
-import com.project.EducationalPlatform.decks.DeckService;
 import com.project.EducationalPlatform.replanConfigs.ReplanConfig;
 import com.project.EducationalPlatform.replanConfigs.ReplanConfigForm;
-import com.project.EducationalPlatform.users.User;
-import com.project.EducationalPlatform.users.UserService;
 
 @Controller
-public class AppController {
+public class CardController {
 
 	@Autowired
 	private CardService cardService;
-	@Autowired
-	private DeckService deckService;
-	@Autowired
-	private UserService userService;
-		
-	@RequestMapping("/")
-	public String viewHomePage(Model model) { //вывод таблицы
-		List<User> listUsers = userService.listAll();
-		model.addAttribute("listUsers", listUsers);
-		
-		return "index";
-	}
 	
 	@RequestMapping("/{userId}/decks/{deckId}/cards")
 	public String viewDeckCards(@PathVariable(name = "userId") Long userId,
@@ -156,25 +137,6 @@ public class AppController {
 		return "repeat_second_side_cards_replanning";
 	}
 	
-	@RequestMapping("/{userId}/decks")
-	public String viewUserDecks(@PathVariable(name = "userId") Long userId, Model model) {
-		List<Deck> listDecks = deckService.listAllByUser(userId);
-		model.addAttribute("listDecks", listDecks);
-		model.addAttribute("userId", userId);
-		
-		return "user_decks";
-	}
-	
-	@RequestMapping("/{userId}/decks/new")
-	public String viewDeckCreate(@PathVariable(name = "userId") Long userId, Model model) {
-		Deck deck = new Deck();
-		deck.setAuthorId(userId);
-		model.addAttribute("deck", deck);
-		model.addAttribute("userId", userId);
-		
-		return "deck_create";
-	}
-	
 	@RequestMapping("/{userId}/decks/{deckId}/cards/new")
 	public String viewCardCreate(@PathVariable(name = "userId") Long userId,
 			@PathVariable(name = "deckId") Long deckId, Model model) {
@@ -186,14 +148,6 @@ public class AppController {
 		
 		return "card_create";
 	}
-	
-	/*@RequestMapping("/new")
-	public String showNewUserPage(Model model) { //создание нового продукта
-		Product product = new Product();
-		model.addAttribute("product", product);
-		
-		return "new_product";
-	}*/
 	
 	@RequestMapping(value = "/{userId}/decks/{deckId}/cards/repeat/replanning/save", method = RequestMethod.POST)
 	public String saveReplanConfigs(@ModelAttribute("configForm") ReplanConfigForm configForm,
@@ -208,14 +162,6 @@ public class AppController {
 		
 		return "redirect:/" + userId + "/decks/" + deckId + "/cards";
 	}
-	
-	@RequestMapping(value = "/{userId}/decks/deck_save", method = RequestMethod.POST)
-	public String saveDeck(@ModelAttribute("deck") Deck deck,
-			@PathVariable(name = "userId") Long userId) {
-		deckService.save(deck);
-		
-		return "redirect:/" + userId + "/decks";
-	}
 
 	@RequestMapping(value = "/{userId}/decks/{deckId}/cards/card_save", method = RequestMethod.POST)
 	public String saveCard(@ModelAttribute("card") Card card,
@@ -225,26 +171,4 @@ public class AppController {
 		
 		return "redirect:/" + userId + "/decks/" + deckId + "/cards";
 	}
-	
-	/*@RequestMapping(value = "/save", method = RequestMethod.POST)
-	public String saveUser(@ModelAttribute("user") User user) {
-		userService.save(user);
-		
-		return "redirect:/";
-	}//*/
-	
-	@RequestMapping("/edit/{id}")
-	public ModelAndView showEditProductPage(@PathVariable(name = "id") int id) {
-		ModelAndView mav = new ModelAndView("edit_product");
-		User user = userService.get(id);
-		mav.addObject("user", user);
-		
-		return mav;
-	}
-	
-	/*@RequestMapping("/delete/{id}")
-	public String deleteProduct(@PathVariable(name = "id") int id) {
-		service.delete(id);
-		return "redirect:/";		
-	}*/
 }

@@ -19,7 +19,7 @@
         </thead>
         <tbody>
         <tr th:each="subject : ${listSubjects}">
-            <td><a th:href="@{'/sub/select/' + ${subject.id}}" th:text="${subject.name}" /></td>
+            <td><a th:href="@{'/' + ${userId} + '/sub/select/' + ${subject.id}}" th:text="${subject.name}" /></td>
         </tr>
         </tbody>
     </table>
