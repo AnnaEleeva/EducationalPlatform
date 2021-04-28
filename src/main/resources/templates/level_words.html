@@ -15,13 +15,16 @@
         <tr>
             <th>Learn</th>
             <th>Rus</th>
+            <th>Add in Cards</th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="word, iter : ${listWordsRu}">
         	<td th:text="${listWordsDe[__${iter.index}__]}">Learn Word</td>
             <td th:text="${word}">Rus</td>
-
+			<td>
+				<a th:href="@{/{userId}/sub/select/{idSubject}/level/select/{levelId}/words/{index}/save/deck_choise(levelId=${levelId}, userId=${userId}, idSubject=${idSubject}, index=${iter.index})}">Add</a>
+			</td>
         </tr>
         </tbody>
     </table>
