@@ -17,9 +17,9 @@ public class QuestMaker {
 
 		// here we decide how many levels skill will have. We just see count of files in
 		// the directory
-		// String parentFolderPath =
-		// "C:\\Users\\Anna\\IdeaProjects\\gameJavaFX1(2)\\src\\txtFiles\\ru";
-		String parentFolderPath = "C:\\My_Files\\Spring_work\\col_version\\src\\main\\resources\\txtFiles\\tests\\ru";
+		 String parentFolderPath =
+		 "C:\\Users\\Anna\\IdeaProjects\\gameJavaFX1(2)\\src\\txtFiles\\ru";
+		//String parentFolderPath = "C:\\My_Files\\Spring_work\\col_version\\src\\main\\resources\\txtFiles\\tests\\ru";
 		File parent = new File(parentFolderPath);
 		int countFiles = parent.listFiles().length; // levels = count files
 
@@ -29,12 +29,12 @@ public class QuestMaker {
 
 			// here we take files and fill listWords. for one level
 			try {
-				// File file = new
-				// File("C:\\Users\\Anna\\IdeaProjects\\gameJavaFX1(2)\\src\\txtFiles\\ru\\" +
-				// level + "ru.txt");
-				File file = new File(
+				 File file = new
+				 File("C:\\Users\\Anna\\IdeaProjects\\gameJavaFX1(2)\\src\\txtFiles\\ru\\" +
+				 level + "ru.txt");
+			/*	File file = new File(
 						"C:\\My_Files\\Spring_work\\col_version\\src\\main\\resources\\txtFiles\\tests\\ru\\"
-								+ level + "ru.txt");
+								+ level + "ru.txt");*/
 				FileReader fr = new FileReader(file);
 				BufferedReader reader = new BufferedReader(fr);
 				String line = reader.readLine();
@@ -48,14 +48,14 @@ public class QuestMaker {
 			}
 
 			try {
-				// File file2 = new
-				// File("C:\\Users\\Anna\\IdeaProjects\\gameJavaFX1(2)\\src\\txtFiles\\" +
-				// SubjectsController.subjectEnum.getTitle() + "\\" + level +
-				// SubjectsController.subjectEnum.getTitle() + ".txt");
-				File file2 = new File(
+				 File file2 = new
+				 File("C:\\Users\\Anna\\IdeaProjects\\gameJavaFX1(2)\\src\\txtFiles\\" +
+				 SubjectsController.subjectEnum.getTitle() + "\\" + level +
+				 SubjectsController.subjectEnum.getTitle() + ".txt");
+				/*File file2 = new File(
 						"C:\\My_Files\\Spring_work\\col_version\\src\\main\\resources\\txtFiles\\tests\\"
 								+ SubjectsController.subjectEnum.getTitle() + "\\" + level
-								+ SubjectsController.subjectEnum.getTitle() + ".txt");
+								+ SubjectsController.subjectEnum.getTitle() + ".txt");*/
 				FileReader fr2 = new FileReader(file2);
 				BufferedReader reader2 = new BufferedReader(fr2);
 				String line2 = reader2.readLine();
