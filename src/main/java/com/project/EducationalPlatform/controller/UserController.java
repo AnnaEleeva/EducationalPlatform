@@ -29,8 +29,7 @@ public class UserController {
 		
 	@RequestMapping("/")
 	public String viewHomePage(Model model, @RequestParam("user") String user, @RequestParam("token") String token, HttpServletResponse response) { //вывод таблицы
-		List<User> listUsers = userService.listAll();
-		model.addAttribute("listUsers", listUsers);
+
 
 		System.out.println("мы в info");
 		System.out.println("access_token: "+token);
@@ -44,8 +43,13 @@ public class UserController {
 			String first_name=userR.getFirstName();
 			String last_name=userR.getLastName();
 			model.addAttribute("first_name_last_name", first_name+" "+last_name);
-			Integer vkId=userR.getId();
+			Long vkId= Long.valueOf(userR.getId());
 			model.addAttribute("vkId", vkId);
+
+			User tempUser=new User(vkId,first_name,last_name);
+
+
+			userService.save(tempUser);
 
 
 
@@ -54,6 +58,8 @@ public class UserController {
 			response.setContentType("text/html;charset=utf-8");
 			e.printStackTrace();
 		}
+		List<User> listUsers = userService.listAll();
+		model.addAttribute("listUsers", listUsers);
 		
 		return "index";
 	}

@@ -26,7 +26,7 @@ public class VersionsController {
 	@Autowired
 	private VersionsService versionsService; // вариант обучения
 
-	@RequestMapping("/sub/select/{idSubject}/level/select/{idLevel}")
+	@RequestMapping("/{userId}/sub/select/{idSubject}/level/select/{idLevel}")
 	public ModelAndView viewVersionsPage(@PathVariable(name = "idSubject") int idSubject,
 			@PathVariable(name = "idLevel") int idLevel) { // вывод таблицы
 		ModelAndView mav = new ModelAndView("versions");

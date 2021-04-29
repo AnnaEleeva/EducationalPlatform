@@ -31,8 +31,8 @@ public class UserService {
 		return repo.findAll();
 	}
 	
-	public void save(User product) {
-		repo.save(product);
+	public void save(User user) {
+		repo.save(user);
 	}
 	
 	public User get(long id) {
