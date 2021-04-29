@@ -12,6 +12,20 @@ public class UserService {
 
 	@Autowired
 	private UserRepository repo;
+
+	public void processOAuthPostLogin(String username) {
+		System.out.println("name: " + username);
+		User existUser = repo.getUserByUsername(username);
+
+		if (existUser == null) {
+			User newUser = new User();
+			newUser.setName(username);
+
+
+			repo.save(newUser);
+		}
+
+	}
 	
 	public List<User> listAll() {
 		return repo.findAll();
