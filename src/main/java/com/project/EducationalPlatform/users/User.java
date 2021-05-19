@@ -12,7 +12,7 @@ public class User {
 	protected User() {
 	}
 
-	protected User(Long id, String name, String surname) {
+	public User(Long id, String name, String surname) {
 		super();
 		this.id = id;
 		this.name = name;
