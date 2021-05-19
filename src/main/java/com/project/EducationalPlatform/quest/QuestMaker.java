@@ -12,14 +12,14 @@ import java.util.Random;
 public class QuestMaker {
 	public static ArrayList<ArrayList<Question>> questions = new ArrayList<ArrayList<Question>>() {
 	};
+	public static String pathToTxtFiles = ".\\bin\\target\\classes\\txtFiles\\tests";
 
 	public static void fw() {
 
 		// here we decide how many levels skill will have. We just see count of files in
 		// the directory
-		 String parentFolderPath =
-		 "C:\\Users\\Anna\\IdeaProjects\\gameJavaFX1(2)\\src\\txtFiles\\ru";
-		//String parentFolderPath = "C:\\My_Files\\Spring_work\\col_version\\src\\main\\resources\\txtFiles\\tests\\ru";
+		 //String parentFolderPath = "C:\\Users\\Anna\\IdeaProjects\\gameJavaFX1(2)\\src\\txtFiles\\ru";
+		String parentFolderPath = pathToTxtFiles + "\\ru";
 		File parent = new File(parentFolderPath);
 		int countFiles = parent.listFiles().length; // levels = count files
 
@@ -30,7 +30,7 @@ public class QuestMaker {
 			// here we take files and fill listWords. for one level
 			try {
 				 File file = new
-				 File("C:\\Users\\Anna\\IdeaProjects\\gameJavaFX1(2)\\src\\txtFiles\\ru\\" +
+				 File(pathToTxtFiles + "\\ru\\" +
 				 level + "ru.txt");
 			/*	File file = new File(
 						"C:\\My_Files\\Spring_work\\col_version\\src\\main\\resources\\txtFiles\\tests\\ru\\"
@@ -49,7 +49,7 @@ public class QuestMaker {
 
 			try {
 				 File file2 = new
-				 File("C:\\Users\\Anna\\IdeaProjects\\gameJavaFX1(2)\\src\\txtFiles\\" +
+				 File(pathToTxtFiles + "\\" +
 				 SubjectsController.subjectEnum.getTitle() + "\\" + level +
 				 SubjectsController.subjectEnum.getTitle() + ".txt");
 				/*File file2 = new File(
