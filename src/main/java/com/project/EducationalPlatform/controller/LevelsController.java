@@ -27,6 +27,7 @@ import java.util.List;
 public class LevelsController {
 
 	public static int level;
+	public String pathToTxtFiles = "C:\\My_Files\\Spring_work\\col_version\\bin\\target\\classes\\txtFiles\\tests"; 
 
 	@Autowired
 	private LevelsService levelsService;
@@ -70,7 +71,7 @@ public class LevelsController {
 					"C:\\My_Files\\Spring_work\\col_version\\src\\main\\resources\\txtFiles\\tests\\ru\\"
 							+ levelId + "ru.txt");*/
 			File file = new
-					File("C:\\Users\\Anna\\IdeaProjects\\gameJavaFX1(2)\\src\\txtFiles\\ru\\" +
+					File(pathToTxtFiles + "\\ru\\" +
 					levelId + "ru.txt");
 			FileReader fr = new FileReader(file);
 			BufferedReader reader = new BufferedReader(fr);
@@ -90,7 +91,7 @@ public class LevelsController {
 							+ SubjectsController.subjectEnum.getTitle() + "\\" + levelId
 							+ SubjectsController.subjectEnum.getTitle() + ".txt");*/
 			File file2 = new
-					File("C:\\Users\\Anna\\IdeaProjects\\gameJavaFX1(2)\\src\\txtFiles\\" +
+					File(pathToTxtFiles + "\\" +
 					SubjectsController.subjectEnum.getTitle() + "\\" + levelId +
 					SubjectsController.subjectEnum.getTitle() + ".txt");
 
@@ -149,7 +150,7 @@ public class LevelsController {
 					"C:\\My_Files\\Spring_work\\col_version\\src\\main\\resources\\txtFiles\\tests\\ru\\"
 							+ levelId + "ru.txt");*/
 			File file = new
-					File("C:\\Users\\Anna\\IdeaProjects\\gameJavaFX1(2)\\src\\txtFiles\\ru\\" +
+					File(pathToTxtFiles + "\\ru\\" +
 					levelId + "ru.txt");
 			FileReader fr = new FileReader(file);
 			BufferedReader reader = new BufferedReader(fr);
@@ -169,7 +170,7 @@ public class LevelsController {
 							+ SubjectsController.subjectEnum.getTitle() + "\\" + levelId
 							+ SubjectsController.subjectEnum.getTitle() + ".txt");*/
 					File file2 = new
-					File("C:\\Users\\Anna\\IdeaProjects\\gameJavaFX1(2)\\src\\txtFiles\\" +
+					File(pathToTxtFiles + "\\" +
 					SubjectsController.subjectEnum.getTitle() + "\\" + levelId +
 					SubjectsController.subjectEnum.getTitle() + ".txt");
 			FileReader fr2 = new FileReader(file2);

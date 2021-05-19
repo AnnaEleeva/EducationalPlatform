@@ -24,7 +24,7 @@ import java.util.Map;
 @RestController
 public class VKController {
 
-    private final String clientSecret="N8BemovEaCQgFBMvQRRq";
+    private final String clientSecret="0VVJ2Fkx6TxPtVXxOuyL";
     private final int clientId=7835777;
     private final String host="localhost";
     private final Integer port=8080;
