@@ -27,7 +27,7 @@ import java.util.List;
 public class LevelsController {
 
 	public static int level;
-	public String pathToTxtFiles = "C:\\My_Files\\Spring_work\\col_version\\bin\\target\\classes\\txtFiles\\tests"; 
+	public String pathToTxtFiles = ".\\bin\\target\\classes\\txtFiles\\tests"; 
 
 	@Autowired
 	private LevelsService levelsService;
