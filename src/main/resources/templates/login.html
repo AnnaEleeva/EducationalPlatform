@@ -1,17 +1,31 @@
 <!DOCTYPE html>
-<html xmlns:th="http:/www.thymeleaf.org">
+<html xmlns:th="http:/www.thymeleaf.org" xmlns:float="http://www.w3.org/1999/xhtml">
 <head  />
 <body>
-<div class="container text-center">
+
+
+<div align="center">
+
+
 	<div>
-		<h2>Please Login</h2>
-		<br/>
-	</div>
-	<div>
-		<h4><a th:href="@{/authorize}">Login with VK</a></h4>
+
+		<img th:src="@{img/bugs.jpg}"   width="20%" height="20%" alt="Иллюстрация"  />
+		<h2>
+			<a>Please Login</a>
+			<br/><br/>
+			<a th:href="@{/authorize}">Login with VK</a>
+		</h2>
+
 	</div>
 
-		
+	<div >
+		<img th:src="@{img/cat1.jpg}"   width="10%" height="10%" alt="Иллюстрация" align="center" vspace="5" hspace="100"/>
+		<img th:src="@{img/daffy2.jpg}"   width="10%" height="10%" alt="Иллюстрация" align="center" vspace="30" hspace="100"/>
+
+	</div>
+
+
+
 
 </div>
 </body>

@@ -1,5 +1,6 @@
 package com.project.EducationalPlatform.controller;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,6 +22,7 @@ import javax.servlet.http.HttpServletResponse;
 
 @Controller
 public class UserController {
+
 
 	@Autowired
 	private UserService userService;

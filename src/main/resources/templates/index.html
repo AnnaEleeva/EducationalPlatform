@@ -11,34 +11,48 @@
 <div>Hello <a th:href="@{'https://vk.com/id' + *{vkId}}"><span th:utext="*{first_name_last_name}"></span></a>!</div>
 
 <div align="center">
-    <h1>С возвращением, семпай!</h1>
+    <h1>
+        <a>С возвращением, семпай!</a>
+    </h1>
     <br/><br/>
-    <table border="1" cellpadding="10">
-        <thead>
+
+
+
+        <table border="1" cellpadding="10">
+
+            <thead>
             <tr>
                 <th>User ID</th>
                 <th>Name</th>
                 <th>Surname</th>
             </tr>
-        </thead>
-        <tbody>
+            </thead>
+            <tbody>
             <tr th:each="user : ${listUsers}">
-            	<td th:text="${user.id}">User ID</td>
+                <td th:text="${user.id}">User ID</td>
                 <td th:text="${user.name}">Name</td>
                 <td th:text="${user.surname}">Surname</td>
                 <td>
-                	<a th:href="@{${user.id} + '/sub'}">Курс</a>
+                    <a th:href="@{${user.id} + '/sub'}">Курс</a>
                 </td>
                 <td >
-                	<a th:href="@{'/' + ${user.id} + '/decks'}">Колоды</a>
+                    <a th:href="@{'/' + ${user.id} + '/decks'}">Колоды</a>
                 </td>
                 <td >
-                	<a th:href="@{'/edit/' + ${user.id}}">Edit</a>
+                    <a th:href="@{'/edit/' + ${user.id}}">Edit</a>
                 </td>
 
             </tr>
-        </tbody>
-    </table>
-</div>    
+            </tbody>
+        </table>
+
+
+
+</div>
+<div >
+    <img th:src="@{img/bugs3.png}"   width="10%" height="10%" alt="Иллюстрация" align="center" vspace="5" hspace="100"/>
+    <img th:src="@{img/cat1.jpg}"   width="10%" height="10%" alt="Иллюстрация" align="right" vspace="30" hspace="100"/>
+
+</div>
 </body>
 </html>
