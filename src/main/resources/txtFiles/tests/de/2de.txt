@@ -1,19 +1,18 @@
-Was ist das? [вас ист дас?]
-der Kubus
-der Luffballon [лУфтбалон]
-die Fahne [фАнэ]
-die puppe [пупэ]
-der teddybar [тэдибэр]
-der ball [баль]
-der eimer [аймэр]
-der kreisel [крайзэль]
-die lokomotive [локомотИвэ]
-der spaten [шпатэн]
-die trommel [тромэль]
-das buch [бух]
-das fahrrad [фАрат]
-das auto [ауто]
-das kasperle [кАшпэрле]
-das sprungseil [шпрУнгзайль]
-der baukasten [дэр бАукастэн]
-die spielsoldaten [ди шпильзольдатэн]
+Wer ist das? [вэр ист дас?]
+die Mutter
+der Bruder
+der Vater
+der Grossvater
+die Schwester
+die Grossmutter
+das Madchen
+das Kind
+der Knabe
+der Sohn
+die Kinder
+die Tochter
+die Tante
+der Freund
+der Onkel
+die Frau
+der Mann

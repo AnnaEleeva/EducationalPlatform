@@ -12,18 +12,18 @@ import java.util.Random;
 public class QuestMaker {
 	public static ArrayList<ArrayList<Question>> questions = new ArrayList<ArrayList<Question>>() {
 	};
-	public static String pathToTxtFiles = ".\\bin\\target\\classes\\txtFiles\\tests";
+	public static String pathToTxtFiles = "src/main/resources/txtFiles/tests";
 
 	public static void fw() {
 
 		// here we decide how many levels skill will have. We just see count of files in
 		// the directory
 		 //String parentFolderPath = "C:\\Users\\Anna\\IdeaProjects\\gameJavaFX1(2)\\src\\txtFiles\\ru";
-		String parentFolderPath = pathToTxtFiles + "\\ru";
+		String parentFolderPath = pathToTxtFiles + "/ru";
 		File parent = new File(parentFolderPath);
 		int countFiles = parent.listFiles().length; // levels = count files
 
-		for (int level = 0; level < countFiles; level++) {
+		for (int level = 1; level <= countFiles; level++) {
 			ArrayList<String> listWordsRu = new ArrayList<String>();
 			ArrayList<String> listWordsDe = new ArrayList<String>();
 
@@ -70,13 +70,13 @@ public class QuestMaker {
 
 			// here we create an object Questions. We take lists with words and put it in
 			// new object
-			questions.add(level, new ArrayList<Question>() {
+			questions.add(level-1, new ArrayList<Question>() {
 			});
 			for (int j = 0; j < listWordsRu.size(); j++) {
 				int firstRandomIndex = getRandomFromList(listWordsDe, j);
 				int secondRandomIndex = getRandomFromList(listWordsDe, j, firstRandomIndex);
 
-				questions.get(level).add(j,
+				questions.get(level-1).add(j,
 						new Question(
 								listWordsRu.get(j), new String[] { listWordsDe.get(j),
 										listWordsDe.get(firstRandomIndex), listWordsDe.get(secondRandomIndex) },

@@ -1,29 +1,37 @@
-House
-table
-chair
-computer
-bed
-armchair
-TV-set
-sofa
-wardrobe
-fridge
-washing machine
-telephone
-lamp
-mirror
-wall
-flat
-room
-door
-window
-balcony
-floor
-bathroom
-bedroom
-sitting-room
-ceiling
-curtain
-kitchen
-garden
-fence
+Food
+I am hungry
+milk
+bread
+meat
+fish
+butter
+egg
+sausage
+ice cream
+cheese
+macaroni
+canned foods
+chocolate
+sour cream
+salt
+sugar
+sweets
+salad
+porridge
+jam
+honey
+tea
+juice
+pancakes
+soup
+cocoa
+coffee
+cake
+curds
+fried eggs
+biscuit
+biscuit
+breakfast
+lunch
+dinner
+supper

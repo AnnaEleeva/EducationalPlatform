@@ -1,10 +1,16 @@
-one
-two
-three
-four
-five 
-six
-seven
-eight
-nine
-ten
+Colours [кАлаз]
+What colour is it?
+It is green 
+white [уАйт]
+brown [брАун]
+red [рэд]
+black [блэк]
+light blue [лайт блю]
+blue [блю]
+grey [грэй]
+green [грин]
+pink [пинк]
+yellow [йеллоу]
+lilac [лАйлэк]
+orange [Орэндж]
+violet [вАйлет]

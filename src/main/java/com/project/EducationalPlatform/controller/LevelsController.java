@@ -27,7 +27,7 @@ import java.util.List;
 public class LevelsController {
 
 	public static int level;
-	public String pathToTxtFiles = ".\\bin\\target\\classes\\txtFiles\\tests"; 
+	public String pathToTxtFiles = "src/main/resources/txtFiles/tests";
 
 	@Autowired
 	private LevelsService levelsService;
@@ -65,14 +65,16 @@ public class LevelsController {
 			@PathVariable(name = "levelId") int levelId) { // вывод таблицы
 
 
+
 		ArrayList<String> listWordsRu = new ArrayList<String>();
 		try {
 			/*File file = new File(
 					"C:\\My_Files\\Spring_work\\col_version\\src\\main\\resources\\txtFiles\\tests\\ru\\"
 							+ levelId + "ru.txt");*/
 			File file = new
-					File(pathToTxtFiles + "\\ru\\" +
+					File(pathToTxtFiles + "/ru/" +
 					levelId + "ru.txt");
+
 			FileReader fr = new FileReader(file);
 			BufferedReader reader = new BufferedReader(fr);
 			String line = reader.readLine();

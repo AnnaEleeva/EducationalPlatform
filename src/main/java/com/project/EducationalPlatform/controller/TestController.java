@@ -58,7 +58,7 @@ public class TestController {
 			// questionText.setText(QuestMaker.questions.get(idLevel).get(nowQuestion).getQuestion());
 			// System.out.println("LEVEL "+idLevel);
 			// System.out.println("lEv "+ LevelsController.level);
-			String[] answers = QuestMaker.questions.get(LevelsController.level).get(nowQuestion).getAnswers();
+			String[] answers = QuestMaker.questions.get(LevelsController.level-1).get(nowQuestion).getAnswers();
 			stringList = Arrays.asList(answers);
 			Collections.shuffle(stringList);
 
@@ -69,26 +69,26 @@ public class TestController {
 			 */
 
 			mav.addObject("questionText",
-					QuestMaker.questions.get(LevelsController.level).get(nowQuestion).getQuestion());
+					QuestMaker.questions.get(LevelsController.level-1).get(nowQuestion).getQuestion());
 			mav.addObject("stringList", stringList);
 
 		} else {
 
 			if (stringList.get(contact)
-					.equals(QuestMaker.questions.get(LevelsController.level).get(nowQuestion).getKey())) {
+					.equals(QuestMaker.questions.get(LevelsController.level-1).get(nowQuestion).getKey())) {
 				System.out.println("Good!");
 				correctAnswers++;
 			} else {
 				System.out.println("Bad");
 			}
-			if (nowQuestion + 1 != QuestMaker.questions.get(LevelsController.level).size()) {
+			if (nowQuestion + 1 != QuestMaker.questions.get(LevelsController.level-1).size()) {
 				nowQuestion++;
-				String[] answers = QuestMaker.questions.get(LevelsController.level).get(nowQuestion).getAnswers();
+				String[] answers = QuestMaker.questions.get(LevelsController.level-1).get(nowQuestion).getAnswers();
 				stringList = Arrays.asList(answers);
 				Collections.shuffle(stringList);
 
 				mav.addObject("questionText",
-						QuestMaker.questions.get(LevelsController.level).get(nowQuestion).getQuestion());
+						QuestMaker.questions.get(LevelsController.level-1).get(nowQuestion).getQuestion());
 				mav.addObject("stringList", stringList);
 
 			} else {
@@ -96,7 +96,7 @@ public class TestController {
 				mav = new ModelAndView("result");
 
 				mav.addObject("resText", "Правильных ответов: " + correctAnswers + " из "
-						+ QuestMaker.questions.get(LevelsController.level).size());
+						+ QuestMaker.questions.get(LevelsController.level-1).size());
 
 			}
 
