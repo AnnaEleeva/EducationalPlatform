@@ -19,7 +19,7 @@ public class TestController {
 	ArrayList<String> ru1 = new ArrayList<>(Arrays.asList("один", "два", "три"));
 	ArrayList<String> en1 = new ArrayList<>(Arrays.asList("one", "two", "three"));
 
-	@RequestMapping("/sub/select/{idSubject}/level/select/{idLevel}/ver/select/{idVersion}")
+/*	@RequestMapping("/{userId}/sub/select/{idSubject}/level/select/{idLevel}/ver/select/{idVersion}")
 	public ModelAndView viewTestPage(@PathVariable(name = "idSubject") int idSubject,
 			@PathVariable(name = "idLevel") int idLevel, @PathVariable(name = "idVersion") int idVersion) { // вывод
 																											// таблицы
@@ -31,7 +31,7 @@ public class TestController {
 		mav.addObject("deList", en1);
 
 		return mav;
-	}
+	}*/
 
 	@RequestMapping(value = "/getAnswer", method = RequestMethod.POST)
 	public String reSet(@ModelAttribute("answer") String str) {
@@ -41,7 +41,7 @@ public class TestController {
 
 	private List<String> stringList;
 
-	@GetMapping("/sub/select/{idSubject}/level/select/{idLevel}/ver/select/{idVersion}")
+	@GetMapping("/{userId}/sub/select/{idSubject}/level/select/{idLevel}/ver/select/{idVersion}")
 	@ResponseBody
 	public ModelAndView getFoos(@RequestParam(required = false) Integer contact,
 			@PathVariable(name = "idLevel") int idLevel) {
