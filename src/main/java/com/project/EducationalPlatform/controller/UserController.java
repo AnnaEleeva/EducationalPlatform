@@ -1,5 +1,6 @@
 package com.project.EducationalPlatform.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.vk.api.sdk.client.TransportClient;
@@ -58,7 +59,9 @@ public class UserController {
 			response.setContentType("text/html;charset=utf-8");
 			e.printStackTrace();
 		}
-		List<User> listUsers = userService.listAll();
+		User tempUser =  userService.get(Long.parseLong(user));
+		List<User> listUsers = new ArrayList<User>();
+		listUsers.add(tempUser);
 		model.addAttribute("listUsers", listUsers);
 		
 		return "index";
