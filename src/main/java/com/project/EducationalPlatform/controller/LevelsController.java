@@ -66,9 +66,12 @@ public class LevelsController {
 
 		ArrayList<String> listWordsRu = new ArrayList<String>();
 		try {
-			File file = new File(
+			/*File file = new File(
 					"C:\\My_Files\\Spring_work\\col_version\\src\\main\\resources\\txtFiles\\tests\\ru\\"
-							+ levelId + "ru.txt");
+							+ levelId + "ru.txt");*/
+			File file = new
+					File("C:\\Users\\Anna\\IdeaProjects\\gameJavaFX1(2)\\src\\txtFiles\\ru\\" +
+					levelId + "ru.txt");
 			FileReader fr = new FileReader(file);
 			BufferedReader reader = new BufferedReader(fr);
 			String line = reader.readLine();
@@ -82,10 +85,15 @@ public class LevelsController {
 
 		ArrayList<String> listWordsDe = new ArrayList<String>();
 		try {
-			File file2 = new File(
+			/*File file2 = new File(
 					"C:\\My_Files\\Spring_work\\col_version\\src\\main\\resources\\txtFiles\\tests\\"
 							+ SubjectsController.subjectEnum.getTitle() + "\\" + levelId
-							+ SubjectsController.subjectEnum.getTitle() + ".txt");
+							+ SubjectsController.subjectEnum.getTitle() + ".txt");*/
+			File file2 = new
+					File("C:\\Users\\Anna\\IdeaProjects\\gameJavaFX1(2)\\src\\txtFiles\\" +
+					SubjectsController.subjectEnum.getTitle() + "\\" + levelId +
+					SubjectsController.subjectEnum.getTitle() + ".txt");
+
 			FileReader fr2 = new FileReader(file2);
 			BufferedReader reader2 = new BufferedReader(fr2);
 			String line2 = reader2.readLine();
@@ -137,9 +145,12 @@ public class LevelsController {
 
 		ArrayList<String> listWordsRu = new ArrayList<String>();
 		try {
-			File file = new File(
+		/*	File file = new File(
 					"C:\\My_Files\\Spring_work\\col_version\\src\\main\\resources\\txtFiles\\tests\\ru\\"
-							+ levelId + "ru.txt");
+							+ levelId + "ru.txt");*/
+			File file = new
+					File("C:\\Users\\Anna\\IdeaProjects\\gameJavaFX1(2)\\src\\txtFiles\\ru\\" +
+					levelId + "ru.txt");
 			FileReader fr = new FileReader(file);
 			BufferedReader reader = new BufferedReader(fr);
 			String line = reader.readLine();
@@ -153,10 +164,14 @@ public class LevelsController {
 
 		ArrayList<String> listWordsDe = new ArrayList<String>();
 		try {
-			File file2 = new File(
+			/*File file2 = new File(
 					"C:\\My_Files\\Spring_work\\col_version\\src\\main\\resources\\txtFiles\\tests\\"
 							+ SubjectsController.subjectEnum.getTitle() + "\\" + levelId
-							+ SubjectsController.subjectEnum.getTitle() + ".txt");
+							+ SubjectsController.subjectEnum.getTitle() + ".txt");*/
+					File file2 = new
+					File("C:\\Users\\Anna\\IdeaProjects\\gameJavaFX1(2)\\src\\txtFiles\\" +
+					SubjectsController.subjectEnum.getTitle() + "\\" + levelId +
+					SubjectsController.subjectEnum.getTitle() + ".txt");
 			FileReader fr2 = new FileReader(file2);
 			BufferedReader reader2 = new BufferedReader(fr2);
 			String line2 = reader2.readLine();
