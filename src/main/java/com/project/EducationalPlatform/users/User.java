@@ -1,26 +1,25 @@
-package com.project.EducationalPlatform.versions;
+package com.project.EducationalPlatform.users;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Versions {
+public class User {
 	private Long id;
 	private String name;
+	private String surname;
 
-	public Versions() {
+	protected User() {
 	}
 
-	public Versions(Long id, String name) {
+	public User(Long id, String name, String surname) {
 		super();
 		this.id = id;
 		this.name = name;
+		this.setSurname(surname);
 	}
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public Long getId() {
 		return id;
 	}
@@ -36,4 +35,13 @@ public class Versions {
 	public void setName(String name) {
 		this.name = name;
 	}
+
+	public String getSurname() {
+		return surname;
+	}
+
+	public void setSurname(String surname) {
+		this.surname = surname;
+	}
+
 }

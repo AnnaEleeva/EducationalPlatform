@@ -16,6 +16,7 @@
         <tr>
             <th>Level</th>
             <th>Name</th>
+            <th>Learn</th>
             <th>Play</th>
         </tr>
         </thead>
@@ -23,6 +24,9 @@
         <tr th:each="level : ${listLevels}">
             <td th:text="${level.level}">Level</td>
             <td th:text="${level.name}">Name</td>
+			<td>
+				<a th:href="@{${userId} + *{idSubject} + '/level/select/' + ${level.id} + '/words'}">Word List</a>
+			</td>
             <td>
                 <a th:href="@{*{idSubject} + '/level/select/' + ${level.id}}">Play!</a>
             </td>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Product Manager</title>
+</head>
+<body>
+
+<div align="center">
+    <h1>Word List</h1>
+    <br/><br/>
+    <table border="1" cellpadding="10">
+        <thead>
+        <tr>
+            <th>Learn</th>
+            <th>Rus</th>
+            <th>Add in Cards</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="word, iter : ${listWordsRu}">
+        	<td th:text="${listWordsDe[__${iter.index}__]}">Learn Word</td>
+            <td th:text="${word}">Rus</td>
+			<td>
+				<a th:href="@{/{userId}/sub/select/{idSubject}/level/select/{levelId}/words/{index}/save/deck_choise(levelId=${levelId}, userId=${userId}, idSubject=${idSubject}, index=${iter.index})}">Add</a>
+			</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>User decks</title>
+</head>
+<body>
+
+<div align="center">
+    <h1>User Deck Lists</h1>
+        <a th:href="@{'/' + ${userId} + '/decks/' + ${deckId} + '/cards/new'}">Create New Card</a>
+		<br/><br/>
+        <a th:href="@{'/' + ${userId} + '/decks/' + ${deckId} + '/cards/fsrepeat'}">Repeat On The First Side</a>
+		<br/><br/>
+        <a th:href="@{'/' + ${userId} + '/decks/' + ${deckId} + '/cards/ssrepeat'}">Repeat On The Second Side</a>
+    <br/><br/>
+    <table border="1" cellpadding="10">
+        <thead>
+            <tr>
+                <th>First Side</th>
+                <th>Second Side</th>
+                <th>Frequency</th>
+                <th>Learning Day</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="card : ${listCards}">
+            	<td th:text="${card.firstSide}">First Side</td>
+                <td th:text="${card.secondSide}">Second Side</td>
+                <td th:text="${card.boxNum}">Frequency</td>
+                <td th:text="${card.learningDay}">Learning Day</td>
+                <td >
+                	<a th:href="@{'/' + ${userId} + '/decks/' + ${deckId} + '/cards/' + ${card.cardId} + '/delete'}">Delete</a>
+                </td>
+                <td >
+                	<a th:href="@{'/' + ${userId} + '/decks/' + ${deckId} + '/cards/' + ${card.cardId} + '/edit'}">Edit</a>
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+</div>    
+</body>
+</html>

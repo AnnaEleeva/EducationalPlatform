@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>User decks</title>
+</head>
+<body>
+
+<div align="center">
+    <h1>User Deck Lists</h1>
+        <a th:href="@{'/' + ${userId} + '/decks/new'}">Create New Deck</a>
+    <br/><br/>
+    <table border="1" cellpadding="10">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Deck ID</th>
+                <th>Author ID</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="deck : ${listDecks}">
+            	<td th:text="${deck.name}">Name</td>
+                <td th:text="${deck.deckId}">Deck ID</td>
+                <td th:text="${deck.authorId}">Author ID</td>
+                <td >
+                	<a th:href="@{'/' + ${userId} + '/decks/' + ${deck.deckId} + '/delete'}">Delete</a>
+                </td>
+                <td >
+                	<a th:href="@{'/' + ${userId} + '/decks/' + ${deck.deckId} + '/edit'}">Edit</a>
+                </td>
+                <td >
+                	<a th:href="@{'/' + ${userId} + '/decks/' + ${deck.deckId} + '/cards'}">Карточки</a>
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+</div>    
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>Answer Control</title>
+</head>
+<body>
+
+<div align="center">
+    <h1>Answer Control</h1>
+    <form action="#" th:action="@{/{userId}/decks/{deckId}/cards/ssrepeat/replanning(userId=${userId},deckId=${deckId})}" th:object="${answerForm}"
+    method="post">
+	    <table border="1" cellpadding="10">
+	        <thead>
+	            <tr>
+	                <th>Second Side</th>
+	                <th>First Side</th>
+	                <th>Your Answer</th>
+	                <th colspan="2">True?</th>
+	            </tr>
+	        </thead>
+	        <tbody>
+	            <tr th:each="answer, iter : ${answerForm.answers}">
+	            	<td th:text="${answer.secondSide}">Second Side</td>
+	            	<td th:text="${answer.firstSide}">First Side</td>
+	                <td th:text="${answer.textAnswer}">Your Answer</td>
+	            	<input type="hidden" th:field="*{answers[__${iter.index}__].cardId}" />
+	            	<input type="hidden" th:field="*{answers[__${iter.index}__].firstSide}" />
+	            	<input type="hidden" th:field="*{answers[__${iter.index}__].secondSide}" />
+	            	<input type="hidden" th:field="*{answers[__${iter.index}__].textAnswer}" />
+	                <td><input type="radio" value="true" th:field="*{answers[__${iter.index}__].truth}" />Yes</td>
+	                <td><input type="radio" value="false" th:field="*{answers[__${iter.index}__].truth}" />No</td>
+	            </tr>
+	        </tbody>
+	    </table>
+		<button type="submit">Save Control</button>
+	</form>
+</div>    
+</body>
+</html>
